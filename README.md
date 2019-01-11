@@ -1,4 +1,4 @@
-This project were created using ReactJS and Redux.
+This project was created using ReactJS and Redux.
 
 ## Tic-Tac-Toe App
 
@@ -8,5 +8,4 @@ I created my own algorithms to evaluate round and match results. It was a challe
 Just read the ingame instructions for further details on how to play the game.
 Try to win a round 10 times to explore the whole app content.
 
-Live Demo Here:
-https://jkninja238.github.io/reactjs-titactoe-app/
+Live Demo Here:  https://jkninja238.github.io/reactjs-titactoe-app/
