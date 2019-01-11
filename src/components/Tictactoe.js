@@ -5,17 +5,16 @@ import { connect } from 'react-redux';
 //component imports
 import TictactoeItem from './TictactoeItem';
 import WinnerTrophyModal from './WinnerTrophyModal';
-import { startGame, showHideModals } from '../actions/gameActions';
+import { startGame } from '../actions/gameActions';
 
 class Tictactoe extends Component {
 
     handleStartMatch(e) {
-        this.props.startGame(this.props.round, this.props.gameboard, 'MATCH');
-        this.props.showHideModals(true);
+        this.props.startGame(this.props.round, this.props.gameboard, this.props.players, 'MATCH');
     }
 
     handleStartRound(e) {
-        this.props.startGame(this.props.round, this.props.gameboard, 'ROUND');
+        this.props.startGame(this.props.round, this.props.gameboard, this.props.players, 'ROUND');
     }
 
     render() {
@@ -65,6 +64,7 @@ class Tictactoe extends Component {
             <div className="main-btn">
                 { this.props.round.round_state === 'STANDBY' ? <button onClick={this.handleStartMatch.bind(this)}>START MATCH</button>: null}
                 { this.props.round.round_state === 'ENDROUND' ? <button onClick={this.handleStartRound.bind(this)}>START NEW ROUND</button>: null}
+                { this.props.round.round_state === 'ENDMATCH' ? <button onClick={this.handleStartMatch.bind(this)}>START NEW MATCH</button>: null}
             </div>
 
             <WinnerTrophyModal />
@@ -75,16 +75,15 @@ class Tictactoe extends Component {
 
 TictactoeItem.propTypes = {
     startGame: propTypes.func,
-    showHideModals: propTypes.func,
-    game_mode: propTypes.string,
+    players: propTypes.array,
     round: propTypes.object,
     gameboard: propTypes.array
 }
 
 const mapStateToProps = state => ({
-    game_mode: state.game.game_mode,
+    players: state.game.players,
     round: state.game.round,
     gameboard: state.game.gameboard
 });
 
-export default connect(mapStateToProps, { startGame, showHideModals })(Tictactoe);
+export default connect(mapStateToProps, { startGame })(Tictactoe);

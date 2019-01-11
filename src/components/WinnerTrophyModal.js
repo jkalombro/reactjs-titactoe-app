@@ -8,6 +8,7 @@ import { showHideModals } from '../actions/gameActions';
 
 //images
 import trophy_img from '../themes/images/trophy.png';
+import confetti_img from '../themes/images/confetti.gif';
 
 class WinnerTrophyModal extends Component {
 
@@ -17,17 +18,20 @@ class WinnerTrophyModal extends Component {
 
     render() {
 
-        console.log("Modal was called!");
-
         return (
         <div>
-            <ReactModal 
+            <ReactModal className="trophy-modal"  
             isOpen={this.props.game_modals.winnermodal_isShow} 
             ariaHideApp={false}
-            contentLabel="Minimal Modal Example">
-            <h1>MY MODAL</h1>
-            <img src={trophy_img} alt="" />
-            <button onClick={this.handleCloseModal.bind(this)}>Close Modal</button>
+            contentLabel="Trophy Modal">
+                <div className="trophy-img-container">
+                    <img className="trophy-img" src={trophy_img} alt="" />
+                </div>
+                <div className="congratulations-text">CONGRATULATIONS! <br /> {this.props.game_modals.winner_name} won the Game!</div>
+                <div className="close-modal-button"><button onClick={this.handleCloseModal.bind(this)}>CLOSE</button></div>
+                <div className="confetti-img">
+                    <img src={confetti_img} alt="" />
+                </div>
             </ReactModal>
         </div>
         )

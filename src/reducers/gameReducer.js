@@ -1,4 +1,4 @@
-import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS, UPDATE_PLAYER_SCORE } from '../actions/types';
+import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS } from '../actions/types';
 
 const initialState = {
     game_mode: "PvAI",
@@ -25,6 +25,7 @@ const initialState = {
         { cellid: 9, current_mark: "", tdclass: "" }
     ],
     game_modals: {
+        winner_name: "",
         winnermodal_isShow: false
     }
 }
@@ -36,14 +37,16 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 round: action.payload.newround,
-                gameboard: action.payload.newgameboard
+                gameboard: action.payload.newgameboard,
+                players: action.payload.newplayers
             };
         case UPDATE_ROUND_STATUS:
             return {
                 ...state,
                 round: action.payload.newround,
                 gameboard: action.payload.newgameboard,
-                players: action.payload.newplayers
+                players: action.payload.newplayers,
+                game_modals: action.payload.newgame_modals
             };
         case UPDATE_TABLE:
             return {
@@ -54,11 +57,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 game_modals: action.payload
-            };
-        case UPDATE_PLAYER_SCORE:
-            return {
-                ...state,
-                players: action.payload
             };
         default:
             return state;

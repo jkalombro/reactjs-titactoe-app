@@ -1,4 +1,4 @@
-import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS, UPDATE_PLAYER_SCORE } from './types';
+import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS } from './types';
 
 //this holds the value of all posible combinations to win a round
 const combinationContainer = [
@@ -36,13 +36,15 @@ export const updateCellMark = (round, gameboard, cellid) => dispatch => {
 
 export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch => {
     
-    var new_turn, new_first_turn, new_message, new_state;
+    var new_turn, new_first_turn, new_message, new_state, isshowmodal, winner_name;
     var newgameboard = gameboard;
     var p1_score = players[0].score;
     var p2_score = players[1].score;
-    var move_result = evaluateGameboard(gameboard, players, round.round_current_turn, cellid);
 
+    //Evaluate the current gameboard marks
+    var move_result = evaluateGameboard(gameboard, players, round.round_current_turn, cellid);
     if(move_result.main === "NEXT"){
+        //this, if no one won the round yet
         if(round.round_current_turn === "P1") {
             new_turn = "P2";
             new_message = players[0].name + " marked cell#" + cellid + ", " + players[1].name + "'s turn!";
@@ -54,6 +56,7 @@ export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch
         new_first_turn = round.current_round_first_turn;
         new_state = round.round_state;
     }else{
+        //this, when someone already won or when round is a draw
         if(move_result.main === "P1") {
             p1_score += 1;
             new_message = players[0].name + " WON THIS ROUND!";
@@ -76,11 +79,24 @@ export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch
     }
 
     if(move_result.winning_cells.length>0) {
-        console.log("THERES WINNING CELLS");
         //update winning cells
         move_result.winning_cells.forEach(function(item){
             newgameboard[item-1].tdclass = "winning_cell";
         });
+    }
+
+    //Evaluate if modal needs to be shown
+    if(p1_score>=10 || p2_score>=10){
+        isshowmodal = true;
+        new_state = "ENDMATCH";
+        if(p1_score>=10){
+            winner_name = players[0].name;
+        }else{
+            winner_name = players[1].name;
+        }
+    }else{
+        isshowmodal = false;
+        winner_name = "";
     }
 
     const newpayload = {
@@ -95,7 +111,11 @@ export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch
         newplayers : [
             { id: players[0].id, name: players[0].name, score: p1_score},
             { id: players[1].id, name: players[1].name, score: p2_score}
-        ]
+        ],
+        newgame_modals: {
+            winner_name: winner_name,
+            winnermodal_isShow: isshowmodal
+        }
     }
 
     dispatch({
@@ -105,19 +125,25 @@ export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch
 }
 
 
-export const startGame = (round, gameboard, gtype) => dispatch => {
+export const startGame = (round, gameboard, players, gtype) => dispatch => {
 
     var new_message = "";
     var first_turn = "";
     var current_round = round.current_round;
     var newgameboard = gameboard;
+    var newplayers;
 
     if(gtype==='ROUND') {
         first_turn = round.current_round_first_turn
         current_round = current_round + 1;
+        newplayers = players;
     }else{
         first_turn = "P1";
         current_round = 1;
+        newplayers = [
+            { id: players[0].id, name: players[0].name, score: 0 },
+            { id: players[1].id, name: players[1].name, score: 0 }
+        ];
     }
 
     if(first_turn === "P1") {
@@ -139,7 +165,8 @@ export const startGame = (round, gameboard, gtype) => dispatch => {
             round_state: "INGAME",
             round_message: new_message
         },
-        newgameboard: gameboard
+        newgameboard: newgameboard,
+        newplayers: newplayers
     }
 
     dispatch({
@@ -180,13 +207,9 @@ function evaluateGameboard(gameboard, players, current_turn, cellid) {
                 }
             });
 
-            // console.log("Winning Cells");
-            // console.log(winning_cells);
             if(winning_cells.length===2) {
                 result.main = current_turn;
                 winning_cells.push(cellid);
-                console.log(current_turn + " WON THE ROUND!");
-                updatePlayerScore(players, current_turn);
             }else{
                 winning_cells = [];
             }
@@ -197,7 +220,6 @@ function evaluateGameboard(gameboard, players, current_turn, cellid) {
     if(result.main==="NEXT") {
         if(!(gameboard.some(function(item){ return item.current_mark === "" }))){
             result.main = "DRAW";
-            console.log("ITS A DRAW");
         }
     }
 
@@ -205,20 +227,4 @@ function evaluateGameboard(gameboard, players, current_turn, cellid) {
     result.winning_cells = winning_cells;
 
     return result;
-}
-
-const updatePlayerScore = (players, playerid) => dispatch => {
-    var newplayers = players;
-    console.log(playerid + " should be updated!");
-
-    if(playerid==="P1") {
-        newplayers[0].score += 1; 
-    }else{
-        newplayers[1].score += 1;
-    }
-
-    dispatch({
-        type: UPDATE_PLAYER_SCORE,
-        payload: newplayers
-    });
 }
