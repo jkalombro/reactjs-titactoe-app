@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/reactjs-titactoe-app/static/js/runtime~main.006f0d87.js"
   },
   {
-    "revision": "60306dfbf72f7e3cf519",
-    "url": "/reactjs-titactoe-app/static/js/main.60306dfb.chunk.js"
+    "revision": "3886bccd2b7ed785d747",
+    "url": "/reactjs-titactoe-app/static/js/main.3886bccd.chunk.js"
   },
   {
     "revision": "aef8a5b4e143694268db",
     "url": "/reactjs-titactoe-app/static/js/1.aef8a5b4.chunk.js"
   },
   {
-    "revision": "60306dfbf72f7e3cf519",
+    "revision": "3886bccd2b7ed785d747",
     "url": "/reactjs-titactoe-app/static/css/main.4f3cff20.chunk.css"
   },
   {
-    "revision": "a73f44b559b832c59e2ed14c7fb639cd",
+    "revision": "74030b3bc9cd15e16453c676806b2c94",
     "url": "/reactjs-titactoe-app/index.html"
   }
 ];
