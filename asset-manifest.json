@@ -1,15 +1,15 @@
 {
-  "main.css": "/reactjs-titactoe-app/static/css/main.4f3cff20.chunk.css",
-  "main.js": "/reactjs-titactoe-app/static/js/main.3886bccd.chunk.js",
-  "main.js.map": "/reactjs-titactoe-app/static/js/main.3886bccd.chunk.js.map",
-  "static/js/1.aef8a5b4.chunk.js": "/reactjs-titactoe-app/static/js/1.aef8a5b4.chunk.js",
-  "static/js/1.aef8a5b4.chunk.js.map": "/reactjs-titactoe-app/static/js/1.aef8a5b4.chunk.js.map",
+  "main.css": "/reactjs-titactoe-app/static/css/main.ce9bf53e.chunk.css",
+  "main.js": "/reactjs-titactoe-app/static/js/main.9327a2b9.chunk.js",
+  "main.js.map": "/reactjs-titactoe-app/static/js/main.9327a2b9.chunk.js.map",
+  "static/js/1.ab20d110.chunk.js": "/reactjs-titactoe-app/static/js/1.ab20d110.chunk.js",
+  "static/js/1.ab20d110.chunk.js.map": "/reactjs-titactoe-app/static/js/1.ab20d110.chunk.js.map",
   "runtime~main.js": "/reactjs-titactoe-app/static/js/runtime~main.006f0d87.js",
   "runtime~main.js.map": "/reactjs-titactoe-app/static/js/runtime~main.006f0d87.js.map",
-  "static/css/main.4f3cff20.chunk.css.map": "/reactjs-titactoe-app/static/css/main.4f3cff20.chunk.css.map",
   "static/media/trophy.png": "/reactjs-titactoe-app/static/media/trophy.113ac9b8.png",
   "static/media/confetti.gif": "/reactjs-titactoe-app/static/media/confetti.c4d9322c.gif",
+  "static/css/main.ce9bf53e.chunk.css.map": "/reactjs-titactoe-app/static/css/main.ce9bf53e.chunk.css.map",
   "index.html": "/reactjs-titactoe-app/index.html",
-  "precache-manifest.bd657092320d18e20703d14d98459330.js": "/reactjs-titactoe-app/precache-manifest.bd657092320d18e20703d14d98459330.js",
+  "precache-manifest.b3e05abd15869de20dce68a97aee683d.js": "/reactjs-titactoe-app/precache-manifest.b3e05abd15869de20dce68a97aee683d.js",
   "service-worker.js": "/reactjs-titactoe-app/service-worker.js"
 }
