@@ -5,8 +5,8 @@
   "homepage": "https://jkninja238.github.io/reactjs-titactoe-app/",
   "dependencies": {
     "gh-pages": "^2.0.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.3",
