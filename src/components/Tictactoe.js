@@ -1,89 +1,79 @@
-import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+//actions
+import { startGame } from '../actions/gameActions';
 
 //component imports
 import TictactoeItem from './TictactoeItem';
 import WinnerTrophyModal from './WinnerTrophyModal';
-import { startGame } from '../actions/gameActions';
 
-class Tictactoe extends Component {
+const Tictactoe = () => {
+    const players = useSelector(state => state.game.players);
+    const round = useSelector(state => state.game.round);
+    const gameboard = useSelector(state => state.game.gameboard);
+    const dispatch = useDispatch();
 
-    handleStartMatch(e) {
-        this.props.startGame(this.props.round, this.props.gameboard, this.props.players, 'MATCH');
+    const handleStartMatch = () => {
+        dispatch(startGame(round, gameboard, players, 'MATCH'));
     }
 
-    handleStartRound(e) {
-        this.props.startGame(this.props.round, this.props.gameboard, this.props.players, 'ROUND');
+    const handleStartRound = () => {
+        dispatch(startGame(round, gameboard, players, 'ROUND'));
     }
 
-    render() {
-        return (
+    return (
         <div>
-            <h3 className="round-text"> { this.props.round.current_round > 0 ? 'Round ' + this.props.round.current_round: <br/>} </h3>
-            <h2>{ this.props.round.round_message}</h2>
+            <h3 className="round-text"> {round.current_round > 0 ? 'Round ' + round.current_round : <br />} </h3>
+            <h2>{round.round_message}</h2>
             <br />
             <table className="tictactoe-tbl" cellSpacing="0">
                 <tbody>
                     <tr>
-                        <td className={this.props.gameboard[0].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[0]}/>
+                        <td className={gameboard[0].tdclass}>
+                            <TictactoeItem cellstate={gameboard[0]} />
                         </td>
-                        <td className={this.props.gameboard[1].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[1]}/>
+                        <td className={gameboard[1].tdclass}>
+                            <TictactoeItem cellstate={gameboard[1]} />
                         </td>
-                        <td className={this.props.gameboard[2].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[2]}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className={this.props.gameboard[3].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[3]}/>
-                        </td>
-                        <td className={this.props.gameboard[4].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[4]}/>
-                        </td>
-                        <td className={this.props.gameboard[5].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[5]}/>
+                        <td className={gameboard[2].tdclass}>
+                            <TictactoeItem cellstate={gameboard[2]} />
                         </td>
                     </tr>
                     <tr>
-                        <td className={this.props.gameboard[6].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[6]}/>
+                        <td className={gameboard[3].tdclass}>
+                            <TictactoeItem cellstate={gameboard[3]} />
                         </td>
-                        <td className={this.props.gameboard[7].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[7]}/>
+                        <td className={gameboard[4].tdclass}>
+                            <TictactoeItem cellstate={gameboard[4]} />
                         </td>
-                        <td className={this.props.gameboard[8].tdclass}>
-                            <TictactoeItem cellstate={this.props.gameboard[8]}/>
+                        <td className={gameboard[5].tdclass}>
+                            <TictactoeItem cellstate={gameboard[5]} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={gameboard[6].tdclass}>
+                            <TictactoeItem cellstate={gameboard[6]} />
+                        </td>
+                        <td className={gameboard[7].tdclass}>
+                            <TictactoeItem cellstate={gameboard[7]} />
+                        </td>
+                        <td className={gameboard[8].tdclass}>
+                            <TictactoeItem cellstate={gameboard[8]} />
                         </td>
                     </tr>
                 </tbody>
             </table>
             <br /><br />
             <div className="main-btn">
-                { this.props.round.round_state === 'STANDBY' ? <button onClick={this.handleStartMatch.bind(this)}>START MATCH</button>: null}
-                { this.props.round.round_state === 'ENDROUND' ? <button onClick={this.handleStartRound.bind(this)}>START NEW ROUND</button>: null}
-                { this.props.round.round_state === 'ENDMATCH' ? <button onClick={this.handleStartMatch.bind(this)}>START NEW MATCH</button>: null}
+                {round.round_state === 'STANDBY' ? <button onClick={() => handleStartMatch()}>START MATCH</button> : null}
+                {round.round_state === 'ENDROUND' ? <button onClick={() => handleStartRound()}>START NEW ROUND</button> : null}
+                {round.round_state === 'ENDMATCH' ? <button onClick={() => handleStartMatch()}>START NEW MATCH</button> : null}
             </div>
 
             <WinnerTrophyModal />
         </div>
-        )
-    }
+    )
 }
 
-TictactoeItem.propTypes = {
-    startGame: propTypes.func,
-    players: propTypes.array,
-    round: propTypes.object,
-    gameboard: propTypes.array
-}
-
-const mapStateToProps = state => ({
-    players: state.game.players,
-    round: state.game.round,
-    gameboard: state.game.gameboard
-});
-
-export default connect(mapStateToProps, { startGame })(Tictactoe);
+export default Tictactoe;

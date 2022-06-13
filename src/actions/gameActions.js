@@ -13,7 +13,7 @@ const combinationContainer = [
     { id: 9, combinations: [[1,5], [3,6], [7,8]] },
 ]
 
-export const updateCellMark = (round, gameboard, cellid) => dispatch => {
+export const updateCellMark = (round, gameboard, cellid) => {
     
     var plyrmark = "";
     var vgameboard = gameboard;
@@ -27,14 +27,14 @@ export const updateCellMark = (round, gameboard, cellid) => dispatch => {
     //update cellmark
     vgameboard[cellid-1].current_mark = plyrmark;
 
-    dispatch({
+    return {
         type: UPDATE_TABLE,
         payload: vgameboard
-    });
+    };
 }
 
 
-export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch => {
+export const updateRoundStatus = (round, gameboard, players, cellid) => {
     
     var new_turn, new_first_turn, new_message, new_state, isshowmodal, winner_name;
     var newgameboard = gameboard;
@@ -118,14 +118,14 @@ export const updateRoundStatus = (round, gameboard, players, cellid) => dispatch
         }
     }
 
-    dispatch({
+    return {
         type: UPDATE_ROUND_STATUS,
         payload: newpayload
-    });
+    };
 }
 
 
-export const startGame = (round, gameboard, players, gtype) => dispatch => {
+export const startGame = (round, gameboard, players, gtype) => {
 
     var new_message = "";
     var first_turn = "";
@@ -169,22 +169,22 @@ export const startGame = (round, gameboard, players, gtype) => dispatch => {
         newplayers: newplayers
     }
 
-    dispatch({
+    return {
         type: START_MATCH,
         payload: newpayload
-    });
+    };
 }
 
-export const showHideModals = (isShow) => dispatch => {
+export const showHideModals = (isShow) => {
 
     const newgamemodals = {
         winnermodal_isShow: isShow
     }
 
-    dispatch({
+    return {
         type: UPDATE_MODALS,
         payload: newgamemodals
-    });
+    };
 }
 
 //evaluates round result
