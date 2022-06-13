@@ -1,15 +1,15 @@
 {
-  "main.css": "/reactjs-titactoe-app/static/css/main.b7958648.chunk.css",
-  "main.js": "/reactjs-titactoe-app/static/js/main.5231a1df.chunk.js",
-  "main.js.map": "/reactjs-titactoe-app/static/js/main.5231a1df.chunk.js.map",
-  "static/js/1.ab20d110.chunk.js": "/reactjs-titactoe-app/static/js/1.ab20d110.chunk.js",
-  "static/js/1.ab20d110.chunk.js.map": "/reactjs-titactoe-app/static/js/1.ab20d110.chunk.js.map",
-  "runtime~main.js": "/reactjs-titactoe-app/static/js/runtime~main.006f0d87.js",
-  "runtime~main.js.map": "/reactjs-titactoe-app/static/js/runtime~main.006f0d87.js.map",
-  "static/media/trophy.png": "/reactjs-titactoe-app/static/media/trophy.113ac9b8.png",
-  "static/media/confetti.gif": "/reactjs-titactoe-app/static/media/confetti.c4d9322c.gif",
-  "static/css/main.b7958648.chunk.css.map": "/reactjs-titactoe-app/static/css/main.b7958648.chunk.css.map",
-  "index.html": "/reactjs-titactoe-app/index.html",
-  "precache-manifest.584816472d3676e489285929b0336430.js": "/reactjs-titactoe-app/precache-manifest.584816472d3676e489285929b0336430.js",
-  "service-worker.js": "/reactjs-titactoe-app/service-worker.js"
+  "files": {
+    "main.css": "/reactjs-titactoe-app/static/css/main.c7e4cbae.css",
+    "main.js": "/reactjs-titactoe-app/static/js/main.caa693fa.js",
+    "static/media/confetti.gif": "/reactjs-titactoe-app/static/media/confetti.cea7afff5ae5957108bb.gif",
+    "static/media/trophy.png": "/reactjs-titactoe-app/static/media/trophy.e4a6b56ca81819948bf0.png",
+    "index.html": "/reactjs-titactoe-app/index.html",
+    "main.c7e4cbae.css.map": "/reactjs-titactoe-app/static/css/main.c7e4cbae.css.map",
+    "main.caa693fa.js.map": "/reactjs-titactoe-app/static/js/main.caa693fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7e4cbae.css",
+    "static/js/main.caa693fa.js"
+  ]
 }
