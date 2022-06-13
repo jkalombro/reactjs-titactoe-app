@@ -27,8 +27,8 @@ const WinnerTrophyModal = () => {
                     <img className="trophy-img" src={trophy_img} alt="" />
                 </div>
                 <div className="congratulations-text">CONGRATULATIONS! <br /> {game_modals.winner_name} won the Game!</div>
-                <div className="close-modal-button"><button onClick={() => handleCloseModal()}>CLOSE</button></div>
-                <div className="confetti-img">
+                <div className="close-modal-button"><button>Click anywhere to Close</button></div>
+                <div className="confetti-img" onClick={() => handleCloseModal()}>
                     <img src={confetti_img} alt="" />
                 </div>
             </ReactModal>
