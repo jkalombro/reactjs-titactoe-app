@@ -9,17 +9,17 @@ describe("App Component", () => {
     render(<App />);
   });
 
-  test('should have scores component', () => {
+  it('should have scores component', () => {
     render(<App />);
     expect(screen.getByText(/scores/i)).toBeInTheDocument();
   });
 
-  test('should have tictactoe component', () => {
+  it('should have tictactoe component', () => {
     render(<App />);
     expect(screen.getByText(/Click Start Match to start!/i)).toBeInTheDocument();
   });
 
-  test('should have instructions component', () => {
+  it('should have instructions component', () => {
     render(<App />);
     expect(screen.getByText(/Instructions/i)).toBeInTheDocument();
   });
