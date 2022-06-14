@@ -4,12 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';
-
-//store
-const store = createStore(rootReducer);
+import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

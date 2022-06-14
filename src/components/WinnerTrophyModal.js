@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { showHideModals } from '../actions/gameActions';
+import { showHideModals } from '../store/actions/gameActions';
 
 //images
 import trophy_img from '../themes/images/trophy.png';

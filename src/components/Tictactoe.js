@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { startGame } from '../actions/gameActions';
+import { startGame } from '../store/actions/gameActions';
 
 //component imports
 import TictactoeItem from './TictactoeItem';
