@@ -30,8 +30,7 @@ const initialState = {
     }
 }
 
-export default function(state = initialState, action) {
-    
+const gameReducer = (state = initialState, action) => {
     switch(action.type) {
         case START_MATCH:
             return {
@@ -62,3 +61,5 @@ export default function(state = initialState, action) {
             return state;
     }
 }
+
+export default gameReducer;

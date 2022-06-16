@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { updateCellMark, updateRoundStatus } from '../actions/gameActions';
+import { updateCellMark, updateRoundStatus } from '../store/actions/gameActions';
 
 //images
 import xicon from '../themes/images/x.png';

@@ -2,32 +2,8 @@
   text-align: center;
 }
 
-@media(max-width:768px) {
-  .main-container {
-    flex-direction: column;
-  }
-
-  .score-container {
-    flex-direction: row !important;
-  }
-
-  .instructions-container {
-    padding: 20px;
-  }
-
-  .app-box-1 {
-    flex: 1;
-    padding-top: 0px !important;
-  }
-}
-
-@media(max-width:1000px) {
-  .score-container {
-    flex-direction: column;
-  }
-}
-
-.main-container, .score-container {
+.main-container,
+.score-container {
   display: flex;
 }
 
@@ -35,7 +11,7 @@
   padding: 20px 30px 20px 0px;
 }
 
-.instructions-container ol > li {
+.instructions-container ol>li {
   text-align: left;
   margin-bottom: 15px;
 }
@@ -63,7 +39,8 @@
   color: #e80000;
 }
 
-.score-box-1 h1, .score-box-2 h1 {
+.score-box-1 h1,
+.score-box-2 h1 {
   font-size: calc(50px + 2vmin);
 }
 
@@ -85,19 +62,19 @@ table.tictactoe-tbl {
   margin: auto;
 }
 
-.tictactoe-tbl tbody > tr > td {
+.tictactoe-tbl tbody>tr>td {
   width: 33%;
   height: 33%;
   border: #282c34 solid 5px;
 }
 
 .main-btn button {
-    background: dodgerblue;
-    color: white;
-    padding: 10px 30px;
-    border: 0px;
-    border-radius: 5px;
-    font-size: 20px;
+  background: dodgerblue;
+  color: white;
+  padding: 10px 30px;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
 .main-btn button:hover,
@@ -192,4 +169,49 @@ button {
 
 .close-modal-button {
   margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .App-header {
+    min-height: 40px;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .score-container {
+    flex-direction: row !important;
+  }
+
+  .instructions-container {
+    padding: 20px;
+  }
+
+  .app-box-1 {
+    flex: 1;
+    padding-top: 0px !important;
+  }
+
+  .app-box-1 h1,
+  .app-box-1 h2,
+  .app-box-2 h2,
+  .app-box-2 h3 {
+    margin-block-start: 0.4em !important;
+    margin-block-end: 0.4em !important;
+  }
+
+  .app-box-2 h3 {
+    font-size: 1.5em;
+  }
+
+  .score-box-1 h1, .score-box-2 h1 {
+    font-size: calc(40px + 2vmin);
+  }
+}
+
+@media(max-width:1000px) {
+  .score-container {
+    flex-direction: column;
+  }
 }
