@@ -2,7 +2,7 @@
   "name": "tictactoe-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jkninja238.github.io/reactjs-titactoe-app/",
+  "homepage": "https://jkalombro.github.io/reactjs-titactoe-app/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^18.1.0",
