@@ -36,5 +36,5 @@ jobs:
       - name: Deploy to GH Pages
         run: |
           git config --global user.email "jkninja238@gmail.com"
-          git config --global user.name "Jk Alombro"
+          git config --global user.name "jkalombro"
           npm run deploy
