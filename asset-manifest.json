@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/reactjs-titactoe-app/static/css/main.c7e4cbae.css",
-    "main.js": "/reactjs-titactoe-app/static/js/main.caa693fa.js",
+    "main.css": "/reactjs-titactoe-app/static/css/main.4866fc1a.css",
+    "main.js": "/reactjs-titactoe-app/static/js/main.e34b21b9.js",
     "static/media/confetti.gif": "/reactjs-titactoe-app/static/media/confetti.cea7afff5ae5957108bb.gif",
     "static/media/trophy.png": "/reactjs-titactoe-app/static/media/trophy.e4a6b56ca81819948bf0.png",
     "index.html": "/reactjs-titactoe-app/index.html",
-    "main.c7e4cbae.css.map": "/reactjs-titactoe-app/static/css/main.c7e4cbae.css.map",
-    "main.caa693fa.js.map": "/reactjs-titactoe-app/static/js/main.caa693fa.js.map"
+    "main.4866fc1a.css.map": "/reactjs-titactoe-app/static/css/main.4866fc1a.css.map",
+    "main.e34b21b9.js.map": "/reactjs-titactoe-app/static/js/main.e34b21b9.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7e4cbae.css",
-    "static/js/main.caa693fa.js"
+    "static/css/main.4866fc1a.css",
+    "static/js/main.e34b21b9.js"
   ]
 }
