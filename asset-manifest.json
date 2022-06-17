@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/reactjs-titactoe-app/static/css/main.af93b0b2.css",
+    "main.js": "/reactjs-titactoe-app/static/js/main.3a7d2336.js",
+    "static/media/confetti.gif": "/reactjs-titactoe-app/static/media/confetti.cea7afff5ae5957108bb.gif",
+    "static/media/trophy.png": "/reactjs-titactoe-app/static/media/trophy.e4a6b56ca81819948bf0.png",
+    "index.html": "/reactjs-titactoe-app/index.html",
+    "main.af93b0b2.css.map": "/reactjs-titactoe-app/static/css/main.af93b0b2.css.map",
+    "main.3a7d2336.js.map": "/reactjs-titactoe-app/static/js/main.3a7d2336.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af93b0b2.css",
+    "static/js/main.3a7d2336.js"
+  ]
+}
