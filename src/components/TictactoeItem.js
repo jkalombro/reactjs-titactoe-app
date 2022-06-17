@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { FIRE_ALERT } from '../store/actions/types';
 
 //actions
 import { updateCellMark, updateRoundStatus } from '../store/actions/gameActions';
@@ -16,11 +17,11 @@ const TictactoeItem = ({ cellstate }) => {
 
   const handleClick = () => {
     if (round.round_state === "STANDBY") {
-      alert("Click START MATCH to start the game.");
+      dispatch({ type: FIRE_ALERT, payload: "Click START MATCH to start the game."});
     } else if (round.round_state === "ENDROUND") {
-      alert("Click NEXT ROUND to start the new round.");
+      dispatch({ type: FIRE_ALERT, payload: "Click NEXT ROUND to start the new round."});
     } else if (round.round_state === "ENDGAME") {
-      alert("Click NEW MATCH to start a new match.");
+      dispatch({ type: FIRE_ALERT, payload: "Click NEW MATCH to start a new match."});
     } else {
       dispatch(updateCellMark(round, gameboard, cellstate.cellid));
       dispatch(updateRoundStatus(round, gameboard, players, cellstate.cellid));
