@@ -1,4 +1,4 @@
-import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS } from '../actions/types';
+import { START_MATCH, UPDATE_ROUND_STATUS, UPDATE_TABLE, UPDATE_MODALS, FIRE_ALERT } from '../actions/types';
 
 const initialState = {
     game_mode: "PvAI",
@@ -27,7 +27,8 @@ const initialState = {
     game_modals: {
         winner_name: "",
         winnermodal_isShow: false
-    }
+    },
+    alert_message: ""
 }
 
 const gameReducer = (state = initialState, action) => {
@@ -56,6 +57,11 @@ const gameReducer = (state = initialState, action) => {
             return {
                 ...state,
                 game_modals: action.payload
+            };
+        case FIRE_ALERT:
+            return {
+                ...state,
+                alert_message: action.payload
             };
         default:
             return state;
