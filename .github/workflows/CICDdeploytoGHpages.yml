@@ -12,7 +12,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - uses: de-vri-es/setup-git-credentials@v2
+        with:
+          credentials: ${{secrets.GIT_CREDENTIALS}}
+
+      - name: Checkout
         uses: actions/checkout@v3
         
       - name: Setup Node.js environment
