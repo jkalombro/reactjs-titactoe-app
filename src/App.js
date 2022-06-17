@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./themes/css/App.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,7 +14,7 @@ const App = () => {
   const alertMessage = useSelector(state => state.game.alert_message);
   const dispatch = useDispatch();
 
-  const alert = () => toast.warn(alertMessage, {
+  const alert = useCallback(() => toast.warn(alertMessage, {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,
@@ -24,11 +24,11 @@ const App = () => {
     progress: undefined,
     theme: 'dark',
     onClose: dispatch({ type: FIRE_ALERT, payload: ""})
-    });;
+    }), [alertMessage, dispatch]);
 
   useEffect(() => {
     alertMessage && alert();
-  }, [alertMessage]);
+  }, [alertMessage, alert]);
 
   return (
     <div className="App">

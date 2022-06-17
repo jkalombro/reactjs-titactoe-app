@@ -21,13 +21,18 @@ jobs:
           # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
           node-version: 12.x
 
-      - name: Install and Build
+      - name: Install
         run: |
           npm ci
+
+      - name: Run test
+        run: |
+          npm run test
+
+      - name: Run Build
+        run: |
           npm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+      - name: Deploy to GH Pages
+        run: |
+          npm run deploy
